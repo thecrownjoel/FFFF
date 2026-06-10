@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "ffff/quote-rotator",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"title": "Quote Rotator",
 	"category": "widgets",
 	"icon": "format-quote",
@@ -11,7 +11,7 @@
 	"textdomain": "ffff",
 	"supports": {
 		"html": false,
-		"align": [ "wide", "full" ],
+		"align": [ "left", "center", "right", "wide", "full" ],
 		"color": {
 			"background": true,
 			"text": true,

@@ -14,3 +14,26 @@
 .ffff-quote-rotator .ffff-quote-item:first-child {
 	display: block;
 }
+
+/**
+ * Centered by default so the quote reads centered on the page. Override per
+ * block with the toolbar text-align buttons (left / right) if you want.
+ */
+.ffff-quote-rotator {
+	text-align: center;
+}
+
+/* When the block alignment is set to Center, center the box in the column. */
+.ffff-quote-rotator.aligncenter {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Respect explicit text-align choices from the block toolbar. */
+.ffff-quote-rotator.has-text-align-left {
+	text-align: left;
+}
+
+.ffff-quote-rotator.has-text-align-right {
+	text-align: right;
+}
