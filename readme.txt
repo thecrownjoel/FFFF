@@ -1,5 +1,5 @@
 === Quote Rotator — FFFF ===
-Contributors: thecrownjoel
+Contributors: joelkendall
 Tags: quotes, quote, rotator, random quote, testimonials
 Requires at least: 6.1
 Tested up to: 6.7
