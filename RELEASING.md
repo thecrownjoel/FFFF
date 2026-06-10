@@ -64,26 +64,40 @@ Copy only the plugin's runtime files — leave out dev-only files
 rsync -av --delete \
   --exclude='.git' --exclude='.gitignore' \
   --exclude='README.md' --exclude='RELEASING.md' --exclude='*.zip' \
+  --exclude='assets' \
   ~/Projects/ffff/ trunk/
 ```
+
+Note: `assets/` is deliberately excluded from `trunk/` — the plugin-page
+images live in their own top-level `assets/` folder (next step), not in the
+shipped plugin code.
 
 Files that should end up in `trunk/`:
 `ffff.php`, `block.json`, `render.php`, `index.js`, `index.asset.php`,
 `view.js`, `style.css`, `admin.js`, `admin.css`, `readme.txt`.
 
-### 3. Add the plugin-page images (optional but recommended for SEO/clicks)
+### 3. Add the plugin-page images
 
-Put these in `assets/` (create it if needed). PNG or JPG.
-
-- `icon-128x128.png` and `icon-256x256.png` — the icon in search results.
-- `banner-772x250.png` and `banner-1544x500.png` — the header on the plugin page.
-- `screenshot-1.png`, `screenshot-2.png`, `screenshot-3.png` — these match the
-  three entries under `== Screenshots ==` in `readme.txt`, in order.
+The **icon and banner are already made** and live in `~/Projects/ffff/assets/`.
+Copy them into the SVN `assets/` folder:
 
 ```bash
 mkdir -p assets
-# copy your images into assets/
+cp ~/Projects/ffff/assets/icon-128x128.png assets/
+cp ~/Projects/ffff/assets/icon-256x256.png assets/
+cp ~/Projects/ffff/assets/banner-772x250.png assets/
+cp ~/Projects/ffff/assets/banner-1544x500.png assets/
 ```
+
+Then add your **screenshots** (you capture these from your live site — they
+must be real). Save them into the same `assets/` folder as:
+
+- `screenshot-1.png` — the FFFF admin page with a few quotes filled in.
+- `screenshot-2.png` — the Quote Rotator block in the editor.
+- `screenshot-3.png` — a quote shown on the front end of a page.
+
+These map, in order, to the three entries under `== Screenshots ==` in
+`readme.txt`. PNG or JPG; any reasonable size (roughly 1200px wide looks good).
 
 ### 4. Tell SVN about the new files and commit
 
@@ -136,8 +150,11 @@ From `~/Projects` (the parent of the `ffff` folder):
 cd ~/Projects
 rm -f ffff.zip
 zip -r ffff.zip ffff \
-  -x "ffff/.git/*" "ffff/.gitignore" "*.DS_Store" "ffff/ffff.zip"
+  -x "ffff/.git/*" "ffff/.gitignore" "*.DS_Store" "ffff/ffff.zip" "ffff/assets/*"
 ```
+
+The `assets/` images are excluded — they're for the wordpress.org plugin page
+(SVN `assets/`), not part of the installed plugin.
 
 The zip must contain `ffff/ffff.php` at the top level. Use this zip for the
 initial review upload and for manual installs.
