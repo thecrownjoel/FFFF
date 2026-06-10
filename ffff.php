@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name:       FFFF
- * Description:       Manage a list of quotes from the FFFF admin menu; the Quote Rotator block shows one at random on each page load.
- * Version:           2.1.0
+ * Plugin Name:       Quote Rotator — FFFF
+ * Description:       A random quote rotator block. Manage a list of quotes from the FFFF admin menu; the Quote Rotator block shows one at random on each page load. Built for the block editor and Full Site Editing.
+ * Version:           2.2.0
  * Requires at least: 6.1
  * Requires PHP:      7.0
  * Author:            Joel
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // No direct access.
 }
 
-define( 'FFFF_VERSION', '2.1.0' );
+define( 'FFFF_VERSION', '2.2.0' );
 define( 'FFFF_OPTION', 'ffff_quotes' );
 
 /**
