@@ -1,0 +1,30 @@
+/**
+ * FFFF — admin page styles (FFFF menu → quotes repeater).
+ */
+.ffff-admin .ffff-quotes {
+	max-width: 760px;
+	margin-top: 16px;
+}
+
+.ffff-admin .ffff-quote-row {
+	display: flex;
+	gap: 6px;
+	align-items: center;
+	margin-bottom: 6px;
+}
+
+.ffff-admin .ffff-quote-row .ffff-quote-field {
+	flex: 1;
+}
+
+.ffff-admin .ffff-quote-row .button {
+	min-width: 34px;
+	text-align: center;
+	font-size: 16px;
+	line-height: 1.6;
+}
+
+/* The row template is a markup source only; never show it. */
+#ffff-row-template {
+	display: none;
+}

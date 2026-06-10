@@ -1,8 +1,8 @@
 # FFFF — Quote Rotator
 
-A small WordPress block plugin. It adds a **Quote Rotator** block to the block
-inserter. You type in a list of quotes, drop the block on any page or post, and
-on the front end it shows **one random quote per page load**.
+A small WordPress plugin. You manage one global list of quotes from an **FFFF**
+item in the left admin menu, then drop the **Quote Rotator** block on any page or
+post. On the front end it shows **one random quote per page load**.
 
 Built for the block editor / Full Site Editing (FSE) — works in block themes and
 the Site Editor, and supports the usual color, typography, and spacing controls.
@@ -21,35 +21,42 @@ No build tools required.
 
 ## Use
 
-1. Edit a page or post (or a template in the Site Editor).
-2. Add the **Quote Rotator** block (search "quote rotator" in the inserter).
-3. Type a quote into the text box. Use **+** to add another row and **−** to
-   remove one. Each box is resizable (drag the bottom-right corner) for longer
-   quotes. Put any attribution right in the text, e.g. `"Stay hungry." — Steve Jobs`.
-4. Save/publish. Each time the page loads, a random quote is shown.
+1. In the left admin sidebar, open **FFFF**.
+2. Type a quote into a text field. Use **+ Add quote** (or the per-row **+**) to add
+   more rows, and **−** to remove one. Put attribution right in the text, e.g.
+   `"Stay hungry." — Steve Jobs`.
+3. Click **Save quotes**.
+4. Edit any page or post (or a template in the Site Editor) and add the
+   **Quote Rotator** block (search "quote rotator" in the inserter). It shows a
+   preview; the published page shows a random quote on each load.
+
+Edit the list once in the FFFF menu and every Quote Rotator block updates.
 
 ## How it works
 
-- The block stores your quotes as a list attribute and writes all of them into
-  the saved page markup (each in a `<blockquote class="ffff-quote-item">`).
+- The quote list is stored as a single WordPress option (`ffff_quotes`), managed
+  on the FFFF admin page via the Settings API.
+- The block is **dynamic**: `render.php` reads the option and writes all quotes
+  into the page (each in a `<blockquote class="ffff-quote-item">`).
 - `style.css` hides all but the first quote — so even with JavaScript disabled a
   visitor still sees one quote.
-- `view.js` runs on load, picks a random quote, and shows only that one.
-
-Note: if you use a full-page caching plugin/CDN, randomization still happens in
-the visitor's browser on each load, so caching does not pin it to one quote.
+- `view.js` runs on load, picks a random quote, and shows only that one. Because
+  selection happens in the browser, full-page caching/CDNs don't pin it to a
+  single quote.
 
 ## Files
 
 | File | Purpose |
 | --- | --- |
-| `ffff.php` | Plugin header; registers the block from `block.json`. |
-| `block.json` | Block metadata, FSE `supports`, and asset references. |
-| `index.js` | Editor UI (repeater) + saved markup. |
+| `ffff.php` | Plugin header, FFFF admin menu + settings, block registration. |
+| `block.json` | Block metadata, FSE `supports`, asset references. |
+| `render.php` | Server render of the block from the global quote list. |
+| `index.js` | Editor preview of the block (ServerSideRender). |
 | `index.asset.php` | Declares editor script dependencies (no build step). |
 | `view.js` | Front-end random-quote selection. |
 | `style.css` | Front-end styles + no-JS fallback. |
-| `editor.css` | Editor-only styles for the repeater UI. |
+| `admin.js` | FFFF admin repeater (+ / − rows). |
+| `admin.css` | FFFF admin page styles. |
 
 ## License
 

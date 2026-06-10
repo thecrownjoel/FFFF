@@ -2,8 +2,7 @@
 /**
  * Dependency manifest for the editor script (index.js).
  *
- * Because this plugin ships without a build step, we declare the WordPress
- * script dependencies by hand so the editor APIs used in index.js are loaded.
+ * Declared by hand because this plugin ships without a build step.
  *
  * @package FFFF
  */
@@ -13,8 +12,8 @@ return array(
 		'wp-blocks',
 		'wp-element',
 		'wp-block-editor',
-		'wp-components',
+		'wp-server-side-render',
 		'wp-i18n',
 	),
-	'version'      => '1.0.0',
+	'version'      => '2.0.0',
 );
