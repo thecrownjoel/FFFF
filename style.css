@@ -1,0 +1,16 @@
+/**
+ * FFFF — Quote Rotator front-end styles.
+ *
+ * Hide every quote except the first by default. With JavaScript, view.js
+ * overrides this with an inline style to reveal a random quote instead.
+ */
+.ffff-quote-rotator .ffff-quote-item {
+	display: none;
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+.ffff-quote-rotator .ffff-quote-item:first-child {
+	display: block;
+}

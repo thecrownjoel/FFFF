@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Node (not required for this plugin, but ignored if ever added)
+node_modules/
+npm-debug.log*
+
+# Build/packaging artifacts
+*.zip
+
+# Editor/OS cruft
+*.log
+Thumbs.db
